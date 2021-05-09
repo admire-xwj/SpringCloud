@@ -1,0 +1,48 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n  xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n  <modelVersion>4.0.0</modelVersion>\r\n\r\n  <groupId>com.ese</groupId>\r\n  <artifactId>SpringCloud</artifactId>\r\n  <version>1.0-SNAPSHOT</version>\r\n  <packaging>pom</packaging>\r\n  <modules>\r\n    <module>cloud-provider-payment8001</module>\r\n    <module>cloud-consumer-order80</module>\r\n    <module>cloud-api-commons</module>\r\n  </modules>\r\n\r\n  <name>Maven</name>\r\n  <!-- FIXME change it to the project's website -->\r\n  <url>http://maven.apache.org/</url>\r\n  <inceptionYear>2001</inceptionYear>\r\n\r\n  <distributionManagement>\r\n    <site>\r\n      <id>website</id>\r\n      <url>scp://webhost.company.com/www/website</url>\r\n    </site>\r\n  </distributionManagement>\r\n\r\n  <!--统一管理jar包版本-->\r\n  <properties>\r\n    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    <maven.compiler.source>1.8</maven.compiler.source>\r\n    <maven.compiler.target>1.8</maven.compiler.target>\r\n    <junit.version>4.12</junit.version>\r\n    <log4j.version>1.2.17</log4j.version>\r\n    <lombok.version>1.18.20</lombok.version>\r\n    <mysql.version>8.0.24</mysql.version>\r\n    <druid.version>1.2.6</druid.version>\r\n    <mybatis.spring.boot.version>2.1.4</mybatis.spring.boot.version>\r\n  </properties>\r\n\r\n  <!--子模块继承之后，提供作用：锁定版本+子module不用groupId和version-->\r\n  <dependencyManagement>\r\n    <dependencies>\r\n      <!--spring boot 2.2.2-->\r\n      <dependency>\r\n        <groupId>org.springframework.boot</groupId>\r\n        <artifactId>spring-boot-dependencies</artifactId>\r\n        <version>2.3.10.RELEASE</version>\r\n        <type>pom</type>\r\n        <scope>import</scope>\r\n      </dependency>\r\n      <!--spring cloud Hoxton.SR1-->\r\n      <dependency>\r\n        <groupId>org.springframework.cloud</groupId>\r\n        <artifactId>spring-cloud-dependencies</artifactId>\r\n        <version>Hoxton.SR11</version>\r\n        <type>pom</type>\r\n        <scope>import</scope>\r\n      </dependency>\r\n      <!--spring cloud alibaba 2.1.0.RELEASE-->\r\n      <dependency>\r\n        <groupId>com.alibaba.cloud</groupId>\r\n        <artifactId>spring-cloud-alibaba-dependencies</artifactId>\r\n        <version>2.1.0.RELEASE</version>\r\n        <type>pom</type>\r\n        <scope>import</scope>\r\n      </dependency>\r\n      <dependency>\r\n        <groupId>mysql</groupId>\r\n        <artifactId>mysql-connector-java</artifactId>\r\n        <version>${mysql.version}</version>\r\n      </dependency>\r\n      <dependency>\r\n        <groupId>com.alibaba</groupId>\r\n        <artifactId>druid</artifactId>\r\n        <version>${druid.version}</version>\r\n      </dependency>\r\n      <dependency>\r\n        <groupId>org.mybatis.spring.boot</groupId>\r\n        <artifactId>mybatis-spring-boot-starter</artifactId>\r\n        <version>${mybatis.spring.boot.version}</version>\r\n      </dependency>\r\n      <dependency>\r\n        <groupId>junit</groupId>\r\n        <artifactId>junit</artifactId>\r\n        <version>${junit.version}</version>\r\n      </dependency>\r\n      <dependency>\r\n        <groupId>org.projectlombok</groupId>\r\n        <artifactId>lombok</artifactId>\r\n        <version>${lombok.version}</version>\r\n        <optional>true</optional>\r\n      </dependency>\r\n    </dependencies>\r\n  </dependencyManagement>\r\n\r\n  <build>\r\n    <plugins>\r\n      <plugin>\r\n        <groupId>org.springframework.boot</groupId>\r\n        <artifactId>spring-boot-maven-plugin</artifactId>\r\n        <configuration>\r\n          <fork>true</fork>\r\n          <addResources>true</addResources>\r\n        </configuration>\r\n      </plugin>\r\n    </plugins>\r\n  </build>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 7d0e700529298d7e8d4bc795d63a6f94eb331805)
++++ b/pom.xml	(date 1620568272318)
+@@ -12,6 +12,7 @@
+     <module>cloud-provider-payment8001</module>
+     <module>cloud-consumer-order80</module>
+     <module>cloud-api-commons</module>
++    <module>cloud-eureka-server7001</module>
+   </modules>
+ 
+   <name>Maven</name>
+Index: cloud-eureka-server7001/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cloud-eureka-server7001/pom.xml b/cloud-eureka-server7001/pom.xml
+new file mode 100644
+--- /dev/null	(date 1620568272286)
++++ b/cloud-eureka-server7001/pom.xml	(date 1620568272286)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <parent>
++        <artifactId>SpringCloud</artifactId>
++        <groupId>com.ese</groupId>
++        <version>1.0-SNAPSHOT</version>
++    </parent>
++    <modelVersion>4.0.0</modelVersion>
++
++    <artifactId>cloud-eureka-server7001</artifactId>
++
++    <properties>
++        <maven.compiler.source>8</maven.compiler.source>
++        <maven.compiler.target>8</maven.compiler.target>
++    </properties>
++
++</project>
+\ No newline at end of file
