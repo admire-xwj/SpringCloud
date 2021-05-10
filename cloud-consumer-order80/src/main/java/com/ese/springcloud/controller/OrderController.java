@@ -3,6 +3,7 @@ package com.ese.springcloud.controller;
 import com.ese.springcloud.entities.CommonResult;
 import com.ese.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +20,9 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //    public static final String PAYMENT_URL = "http://localhost:8001";
+    //通过在eureka上注册过的微服务名称调用
+    private static final String PAYMENT_URL = "http://CLOUD-PROVIDER-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;

@@ -29,6 +29,7 @@ public class PaymentController {
     @Resource
     private DiscoveryClient discoveryClient;
 
+
     @Value("${server.port}")
     private String serverPort;
 
@@ -55,7 +56,6 @@ public class PaymentController {
         }
     }
 
-
     /**
      * 获得服务的信息
      *
@@ -76,4 +76,5 @@ public class PaymentController {
 
         return this.discoveryClient;
     }
+
 }
